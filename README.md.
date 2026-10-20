@@ -1,0 +1,50 @@
+# Simulación de Yahtzee con el método de Montecarlo
+
+Simulación del Yahtzee clásico para 2 jugadores usando el método de Montecarlo.
+Actividad didáctica 2-M1. Autor: David Castro.
+
+## Descripción
+
+Cada dado es uniforme discreta en {1..6}. Un turno tiene hasta 3 lanzamientos de
+5 dados y se modela como cadena de Markov (estado: dados conservados y
+lanzamientos restantes). Hay dos jugadores:
+
+- **Montecarlo:** para cada opción de dados a conservar simula k veces el resto del
+  turno y elige la de mejor promedio.
+- **Voraz (línea base):** conserva el valor más repetido y anota la casilla de
+  mayor puntaje.
+
+Reglas basadas en https://solitaired.com/yahtzee (13 categorías, bono superior de
+35 con 63 o más, Yahtzee de 50 y bono de 100 por Yahtzees extra).
+
+## Requisitos
+
+Python 3.8 o superior. Solo usa la librería estándar.
+
+## Uso
+
+```bash
+python yahtzee_montecarlo.py --demo
+python yahtzee_montecarlo.py --partidas 400 --k 30 --semilla 2026 --csv resultados.csv
+python yahtzee_montecarlo.py --prob-yahtzee --semilla 2026
+```
+
+## Resultados (400 partidas, k = 30, semilla 2026)
+
+| Jugador | Puntaje medio | Victorias |
+|---|---|---|
+| Montecarlo | 196,7 | 75,8 % |
+| Voraz | 162,6 | 23,8 % |
+
+La probabilidad de Yahtzee en un turno converge a 4,60 % con 100.000 turnos.
+
+## Estructura del repositorio
+
+- `yahtzee_montecarlo.py`: código fuente
+- `yahtzee_montecarlo.ipynb`: cuaderno de Colab con las salidas ejecutadas
+- `resultados.csv`: puntajes de las 400 partidas
+- `Castro_David_Montecarlo.doc`: informe (introducción, metodología, resultados, conclusiones y anexo con el código)
+
+## Video
+
+[enlace al video]
